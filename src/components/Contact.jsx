@@ -30,8 +30,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-5 h-5" />,
       label: 'Email',
-      value: 'your.email@example.com',
-      href: 'mailto:your.email@example.com',
+      value: 'reed@zerotwo.ai',
+      href: 'mailto:reed@zerotwo.ai',
     },
     {
       icon: <Phone className="w-5 h-5" />,
@@ -50,12 +50,12 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: <Github className="w-6 h-6" />,
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/EmilyThaHuman',
       label: 'GitHub',
     },
     {
       icon: <Linkedin className="w-6 h-6" />,
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://www.linkedin.com/in/reed-vogt-ceo/',
       label: 'LinkedIn',
     },
   ];

@@ -34,12 +34,16 @@ const Layout = ({ children }) => {
         <nav className="container mx-auto px-4 h-16 flex items-center justify-between">
           <motion.a
             href="#home"
-            className="text-2xl font-bold text-primary"
+            className="flex items-center"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
           >
-            RV
+            <img 
+              src="/site-logo.png" 
+              alt="Reed Vogt Logo" 
+              className="h-10 w-10"
+            />
           </motion.a>
 
           {/* Desktop Navigation */}
@@ -106,7 +110,7 @@ const Layout = ({ children }) => {
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/EmilyThaHuman"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -114,7 +118,7 @@ const Layout = ({ children }) => {
                 GitHub
               </a>
               <a
-                href="https://linkedin.com/in/yourusername"
+                href="https://www.linkedin.com/in/reed-vogt-ceo/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -122,7 +126,7 @@ const Layout = ({ children }) => {
                 LinkedIn
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:reed@zerotwo.ai"
                 className="text-muted-foreground hover:text-primary transition-colors"
               >
                 Email

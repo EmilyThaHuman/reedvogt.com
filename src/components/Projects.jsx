@@ -1,75 +1,59 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { Github, ExternalLink } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { ExternalLink, Sparkles, Brain, Zap, Globe } from 'lucide-react';
 
 const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-
-  const categories = ['All', 'Web App', 'Mobile', 'API', 'UI/UX'];
-
-  const projects = [
-    {
-      title: 'E-commerce Platform',
-      description: 'A full-stack e-commerce platform with real-time inventory management and secure payment processing.',
-      image: '/project-1.jpg',
-      category: 'Web App',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      githubUrl: 'https://github.com/yourusername/project-1',
-      liveUrl: 'https://project-1.com',
-    },
-    {
-      title: 'Task Management API',
-      description: 'RESTful API for task management with authentication, real-time updates, and detailed documentation.',
-      image: '/project-2.jpg',
-      category: 'API',
-      technologies: ['Express.js', 'PostgreSQL', 'JWT', 'Socket.io'],
-      githubUrl: 'https://github.com/yourusername/project-2',
-      liveUrl: 'https://api-docs.project-2.com',
-    },
-    {
-      title: 'Social Media Dashboard',
-      description: 'Interactive dashboard for social media analytics with real-time data visualization.',
-      image: '/project-3.jpg',
-      category: 'UI/UX',
-      technologies: ['React', 'D3.js', 'Tailwind CSS', 'Firebase'],
-      githubUrl: 'https://github.com/yourusername/project-3',
-      liveUrl: 'https://project-3.com',
-    },
-    {
-      title: 'Fitness Tracking App',
-      description: 'Mobile application for tracking workouts and nutrition with personalized recommendations.',
-      image: '/project-4.jpg',
-      category: 'Mobile',
-      technologies: ['React Native', 'Redux', 'Node.js', 'MongoDB'],
-      githubUrl: 'https://github.com/yourusername/project-4',
-      liveUrl: 'https://project-4.com',
-    },
-    {
-      title: 'Weather Forecast App',
-      description: 'Real-time weather forecasting application with interactive maps and alerts.',
-      image: '/project-5.jpg',
-      category: 'Web App',
-      technologies: ['React', 'OpenWeatherAPI', 'Mapbox', 'Tailwind CSS'],
-      githubUrl: 'https://github.com/yourusername/project-5',
-      liveUrl: 'https://project-5.com',
-    },
-    {
-      title: 'Blog CMS',
-      description: 'Content management system for blogs with markdown support and SEO optimization.',
-      image: '/project-6.jpg',
-      category: 'Web App',
-      technologies: ['Next.js', 'Prisma', 'PostgreSQL', 'AWS S3'],
-      githubUrl: 'https://github.com/yourusername/project-6',
-      liveUrl: 'https://project-6.com',
-    },
-  ];
-
-  const filteredProjects = selectedCategory === 'All'
-    ? projects
-    : projects.filter(project => project.category === selectedCategory);
+  const project = {
+    title: 'ZeroTwo.ai',
+    tagline: 'Building the Future with AI-Powered Applications',
+    description: 'As CEO and Lead AI Engineer, I founded ZeroTwo.ai to revolutionize how businesses leverage artificial intelligence. We specialize in cutting-edge AI solutions including multi-agent systems, conversational AI, advanced RAG architectures, and enterprise AI orchestration.',
+    longDescription: 'ZeroTwo.ai is at the forefront of AI innovation, providing next-generation AI platforms that combine multiple specialized AI agents to revolutionize creative and technical workflows. Our platform supports 15+ AI providers, custom model integration, and advanced vector search capabilities.',
+    image: '/new-profile-pic.png',
+    liveUrl: 'https://zerotwo.ai/',
+    technologies: [
+      'OpenAI GPT-4',
+      'Claude AI',
+      'Next.js',
+      'React',
+      'Node.js',
+      'Supabase',
+      'PostgreSQL',
+      'Vector Databases',
+      'Multi-Agent Systems',
+      'RAG Architecture',
+      'TypeScript',
+      'Tailwind CSS',
+    ],
+    features: [
+      {
+        icon: <Brain className="w-6 h-6" />,
+        title: 'Multi-Agent Orchestration',
+        description: 'Coordinating specialized AI agents for complex tasks with autonomous decision-making capabilities.',
+      },
+      {
+        icon: <Sparkles className="w-6 h-6" />,
+        title: 'Advanced RAG Architecture',
+        description: 'Custom vector search and knowledge retrieval systems for enhanced AI responses.',
+      },
+      {
+        icon: <Zap className="w-6 h-6" />,
+        title: 'Real-time AI Collaboration',
+        description: 'Live AI-assisted editing, brainstorming, and content generation.',
+      },
+      {
+        icon: <Globe className="w-6 h-6" />,
+        title: 'Enterprise AI Integration',
+        description: 'Supporting 15+ AI providers with custom model deployment and scaling.',
+      },
+    ],
+    stats: [
+      { label: 'AI Models Integrated', value: '15+' },
+      { label: 'AI Agents Deployed', value: '100+' },
+      { label: 'Vector Embeddings', value: '50M+' },
+      { label: 'AI-Generated Assets', value: '10K+' },
+    ],
+  };
 
   return (
     <section id="projects" className="py-20 bg-muted/30">
@@ -82,91 +66,138 @@ const Projects = () => {
           transition={{ duration: 0.5 }}
         >
           <Badge variant="outline" className="mb-4">
-            Portfolio
+            Featured Company
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Featured Projects
+            My Company
           </h2>
           <p className="text-lg text-muted-foreground">
-            A collection of my most notable projects, showcasing my skills
-            and experience in different areas of software development.
+            As CEO and Lead AI Engineer, I founded ZeroTwo.ai to revolutionize
+            how businesses leverage artificial intelligence.
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-4 mb-12 flex-wrap">
-          {categories.map((category, index) => (
+        {/* Main Project Card */}
+        <motion.div
+          className="max-w-6xl mx-auto mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <Card className="overflow-hidden">
+            <div className="grid md:grid-cols-2 gap-0">
+              <div className="relative aspect-square md:aspect-auto overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5">
+                <div className="absolute inset-0 flex items-center justify-center p-12">
+                  <div className="text-center">
+                    <h3 className="text-6xl font-bold mb-4 bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
+                      ZeroTwo.ai
+                    </h3>
+                    <p className="text-xl text-muted-foreground mb-8">
+                      {project.tagline}
+                    </p>
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+                    >
+                      Visit ZeroTwo.ai
+                      <ExternalLink className="w-4 h-4" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <CardContent className="p-8 md:p-12">
+                <Badge className="mb-4">CEO & Lead AI Engineer</Badge>
+                <p className="text-muted-foreground mb-6">
+                  {project.description}
+                </p>
+                <p className="text-muted-foreground mb-6">
+                  {project.longDescription}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 8).map((tech) => (
+                    <Badge key={tech} variant="secondary">
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </div>
+          </Card>
+        </motion.div>
+
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {project.features.map((feature, index) => (
             <motion.div
-              key={category}
+              key={feature.title}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Button
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </Button>
+              <Card>
+                <CardContent className="p-6">
+                  <div className="p-3 rounded-full bg-primary/10 text-primary w-fit mb-4">
+                    {feature.icon}
+                  </div>
+                  <h3 className="font-semibold mb-2">{feature.title}</h3>
+                  <p className="text-sm text-muted-foreground">
+                    {feature.description}
+                  </p>
+                </CardContent>
+              </Card>
             </motion.div>
           ))}
         </div>
 
+        {/* Stats */}
         <motion.div
-          layout
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
-          <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+          {project.stats.map((stat, index) => (
+            <Card key={stat.label}>
+              <CardContent className="p-6 text-center">
+                <div className="text-3xl font-bold text-primary mb-2">
+                  {stat.value}
+                </div>
+                <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </motion.div>
+
+        {/* Technology Stack */}
+        <motion.div
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <h3 className="text-2xl font-bold mb-6">Technology Stack</h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {project.technologies.map((tech, index) => (
               <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="group"
+                key={tech}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+                whileHover={{ scale: 1.1 }}
               >
-                <Card className="overflow-hidden h-full">
-                  <div className="relative aspect-video overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-primary transition-colors"
-                      >
-                        <Github className="w-6 h-6" />
-                      </a>
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-white hover:text-primary transition-colors"
-                      >
-                        <ExternalLink className="w-6 h-6" />
-                      </a>
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground mb-4">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary">
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                <Badge variant="outline" className="px-4 py-2">
+                  {tech}
+                </Badge>
               </motion.div>
             ))}
-          </AnimatePresence>
+          </div>
         </motion.div>
       </div>
     </section>
